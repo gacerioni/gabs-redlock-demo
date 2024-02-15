@@ -2,9 +2,9 @@ import os
 import argparse
 import time
 from dotenv import load_dotenv
-from lock_manager import LockManager
-from csv_manager import CSVManager
-from logger_config import setup_logger
+from src.lock_manager import LockManager
+from src.csv_manager import CSVManager
+from src.logger_config import setup_logger
 
 logger = setup_logger()
 
