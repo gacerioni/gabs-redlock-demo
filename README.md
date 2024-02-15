@@ -69,6 +69,27 @@ To simulate a scenario where the client crashes before releasing the lock:
 python main.py --data "Test data" --skip-release
 ```
 
+## Building the Container Image - via Dockerfile
+
+To build the Docker image for the application, navigate to the project root where the `Dockerfile` is located and run:
+
+```bash
+docker build -t gacerioni/gabs-redlock-demo:0.0.3-gabs .
+```
+
+## Running the Container Image
+
+```bash
+docker run -v /tmp:/tmp \
+  -e "REDIS_CONN_STR=redis://default:blablabla@redis-1337.c421.us-east-1-4.ec2.cloud.redislabs.com:1337/0" \
+  -e "REDIS_CSV_FILE_NAME=/tmp/gabs.csv" \
+  gacerioni/gabs-redlock-demo:0.0.3-gabs --data "Brazil FTW !111!11!!!"
+```
+
+## Extra comments
+
+Harness is a good suggestion to start adding this to the CI/CD pipeline. Build it and run some nice scans, such as Aqua and Bandit.
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue.
