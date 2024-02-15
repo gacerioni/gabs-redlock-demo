@@ -33,7 +33,7 @@ pipeline:
                     repo: gacerioni/gabs-redlock-demo
                     tags:
                       - latest
-                      - 0.0.4-gabs
+                      - <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
           platform:
             os: Linux
             arch: Amd64
