@@ -14,11 +14,19 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Echo Welcome Message
-                  identifier: Echo_Welcome_Message
+                  name: Get Python App Version
+                  identifier: Get_Python_App_Version
                   spec:
-                    shell: Sh
-                    command: echo "Welcome to Harness CI"
+                    connectorRef: gabsdh
+                    image: python:3.12.2-slim
+                    shell: Bash
+                    command: |-
+                      PYTHON_APP_VERSION=$(python get_version.py)
+
+                      export $PYTHON_APP_VERSION
+                    privileged: true
+                    outputVariables:
+                      - name: PYTHON_APP_VERSION
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and Push Container
