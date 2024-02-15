@@ -20,10 +20,7 @@ pipeline:
                     connectorRef: gabsdh
                     image: python:3.12.2-slim
                     shell: Bash
-                    command: |-
-                      PYTHON_APP_VERSION=$(python get_version.py)
-
-                      export $PYTHON_APP_VERSION
+                    command: export PYTHON_APP_VERSION=$(python get_version.py)
                     privileged: true
                     outputVariables:
                       - name: PYTHON_APP_VERSION
