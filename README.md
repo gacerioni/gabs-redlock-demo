@@ -1,4 +1,3 @@
-```
 # Distributed Locking with Redis and Python
 
 This project demonstrates the implementation of distributed locking using Redis and Python. It showcases how to manage access to shared resources (in this case, a CSV file) in a distributed environment to prevent race conditions and ensure data consistency.
@@ -77,4 +76,3 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-```
