@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b5980-2fd4-40bd-b372-a3e788cfe196" name="Changes" comment="Refactor by Gabs - 0.0.3-gabs">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
+    <list default="true" id="b14b5980-2fd4-40bd-b372-a3e788cfe196" name="Changes" comment="Adding support for containers and k8s.">
+      <change afterPath="$PROJECT_DIR$/VERSION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/get_version.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Dockerfile" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -108,7 +107,7 @@
       <updated>1707950687323</updated>
       <workItem from="1707950715438" duration="7042000" />
       <workItem from="1708008789069" duration="126000" />
-      <workItem from="1708008920241" duration="8474000" />
+      <workItem from="1708008920241" duration="9771000" />
     </task>
     <task id="LOCAL-00001" summary="0.0.1-gabs">
       <option name="closed" value="true" />
@@ -142,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708036360155</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding support for containers and k8s.">
+      <option name="closed" value="true" />
+      <created>1708037664958</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708037664958</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,7 +161,8 @@
     <MESSAGE value="Adding requirements.txt for 0.0.1-gabs" />
     <MESSAGE value="Refactor by Gabs - 0.0.2-gabs" />
     <MESSAGE value="Refactor by Gabs - 0.0.3-gabs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor by Gabs - 0.0.3-gabs" />
+    <MESSAGE value="Adding support for containers and k8s." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding support for containers and k8s." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/gabs_redlock_demo$main.coverage" NAME="main Coverage Results" MODIFIED="1708009838265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
