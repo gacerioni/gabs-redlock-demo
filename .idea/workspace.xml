@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b5980-2fd4-40bd-b372-a3e788cfe196" name="Changes" comment="Adding requirements.txt for 0.0.1-gabs" />
+    <list default="true" id="b14b5980-2fd4-40bd-b372-a3e788cfe196" name="Changes" comment="Refactor by Gabs - 0.0.2-gabs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/csv_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/csv_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lock_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/lock_manager.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +29,9 @@
     <setting file="file://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/pottery/redlock.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/redis/client.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/redlock/__init__.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -52,6 +60,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="gabs-redlock-demo" />
@@ -94,7 +107,7 @@
       <updated>1707950687323</updated>
       <workItem from="1707950715438" duration="7042000" />
       <workItem from="1708008789069" duration="126000" />
-      <workItem from="1708008920241" duration="1479000" />
+      <workItem from="1708008920241" duration="7042000" />
     </task>
     <task id="LOCAL-00001" summary="0.0.1-gabs">
       <option name="closed" value="true" />
@@ -112,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708010281593</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactor by Gabs - 0.0.2-gabs">
+      <option name="closed" value="true" />
+      <created>1708010781182</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708010781182</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +143,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="0.0.1-gabs" />
     <MESSAGE value="Adding requirements.txt for 0.0.1-gabs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding requirements.txt for 0.0.1-gabs" />
+    <MESSAGE value="Refactor by Gabs - 0.0.2-gabs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor by Gabs - 0.0.2-gabs" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/gabs_redlock_demo$main.coverage" NAME="main Coverage Results" MODIFIED="1708009838265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

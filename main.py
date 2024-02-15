@@ -2,6 +2,7 @@ import os
 import argparse
 import time
 from dotenv import load_dotenv
+from redis import Redis  # Import Redis
 from src.lock_manager import LockManager
 from src.csv_manager import CSVManager
 from src.logger_config import setup_logger
@@ -31,16 +32,22 @@ def main():
     sleep_time = args.sleep  # Time to sleep before writing to the CSV
     skip_release = args.skip_release  # Whether to skip releasing the lock
 
-    lock_manager = LockManager(REDIS_CONN_STR)
-    csv_manager = CSVManager(REDIS_CSV_FILE_NAME)
+    # Create a Redis connection instance
+    redis_instance = Redis.from_url(REDIS_CONN_STR)
 
-    if lock_manager.acquire_lock():
+    lock_manager = LockManager(REDIS_CONN_STR)
+    # Pass the Redis connection instance to CSVManager
+    csv_manager = CSVManager(REDIS_CSV_FILE_NAME, redis_instance)
+
+    lock_key, lock_value = lock_manager.acquire_lock()    # Attempt to acquire the lock and get the token
+    if lock_key:
         try:
-            logger.info('Lock acquired, appending to CSV after a delay.')
+            logger.info(f'Lock acquired with key {lock_key} and value {lock_value}, appending to CSV after a delay.')
             if sleep_time > 0:
                 logger.info(f'Sleeping for {sleep_time} seconds to simulate a long-running task.')
                 time.sleep(sleep_time)  # Sleep for the specified amount of time
-            csv_manager.append_row(['Data1', message])  # Customize as needed
+            csv_manager.append_row([lock_key, lock_value, message])
+            logger.info(f'Appended data to CSV: {message}')
         except Exception as e:
             logger.error(f'Error appending to CSV: {e}')
         finally:
