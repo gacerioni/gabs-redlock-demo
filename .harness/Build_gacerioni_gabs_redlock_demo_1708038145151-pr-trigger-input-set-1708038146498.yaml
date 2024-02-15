@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_gacerioni_gabs_redlock_demo_1708038145151-pr-trigger-input-set
+  identifier: Build_gacerioni_gabs_redlock_demo_1708038145151prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_gacerioni_gabs_redlock_demo_1708038145151
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
