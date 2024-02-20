@@ -119,7 +119,7 @@ pipeline:
                     condition: <+codebase.build.type> == "PR"
               - step:
                   type: Run
-                  name: Final Test - Do the trick
+                  name: Final Criteria - Test the container
                   identifier: Final_Test_Do_the_trick
                   spec:
                     shell: Sh
