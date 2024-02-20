@@ -18,6 +18,12 @@ load_dotenv()
 
 
 def parse_arguments():
+    """
+    Parse command-line arguments.
+
+    Returns:
+        argparse.Namespace: Parsed arguments.
+    """
     parser = argparse.ArgumentParser(description='Append data to a CSV file with distributed locking.')
     parser.add_argument('--data', type=str, help='Data to append to the CSV file', required=True)
     parser.add_argument('--sleep', type=int, default=0, help='Time in seconds to sleep before writing to the CSV file')
@@ -27,6 +33,9 @@ def parse_arguments():
 
 
 def main():
+    """
+    Main function to append data to a CSV file with distributed locking.
+    """
     args = parse_arguments()
     message = args.data  # Data from command-line argument
     sleep_time = args.sleep  # Time to sleep before writing to the CSV
