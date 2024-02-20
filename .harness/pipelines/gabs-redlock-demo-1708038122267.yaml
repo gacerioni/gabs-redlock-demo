@@ -128,7 +128,7 @@ pipeline:
 
                       sleep 1
 
-                      docker run -v /tmp:/tmp -e "REDIS_CONN_STR=redis://redis:6379/0" -e "REDIS_CSV_FILE_NAME=/tmp/gabs.csv" gacerioni/gabs-redlock-demo:<+pipeline.variables.APP_VERSION> --data "HARNESS TEST!!!"
+                      docker run -v /tmp:/tmp -e "REDIS_CONN_STR=redis://127.0.0.1:6379/0" -e "REDIS_CSV_FILE_NAME=/tmp/gabs.csv" gacerioni/gabs-redlock-demo:<+pipeline.variables.APP_VERSION> --data "HARNESS TEST!!!"
 
                       sleep 1
 
