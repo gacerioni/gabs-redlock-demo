@@ -73,10 +73,10 @@ pipeline:
                       name: Generate Random Secret
                       identifier: Generate_Random_Secret
                       spec:
-                        shell: Sh
-                        command: export TEMP_SECRET=$(echo $RANDOM$RANDOM$RANDOM | cut -c 1-10)
+                        shell: Bash
+                        command: export tempsecret=$(echo $RANDOM$RANDOM$RANDOM | cut -c 1-10)
                         outputVariables:
-                          - name: TEMP_SECRET
+                          - name: tempsecret
               - stepGroup:
                   name: Scan for Vulnerabilities
                   identifier: Scan_for_Vulnerabilities
