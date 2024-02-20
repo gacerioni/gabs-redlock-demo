@@ -133,7 +133,7 @@ pipeline:
                             export REDIS_CSV_FILE_NAME="/tmp/gabs.csv"
 
                             # Define the data to be added
-                            DATA="HARNESS BUILD PIPELINE BY GABS - App Version: <+pipeline.variables.APP_VERSION>"
+                            DATA="HARNESS BUILD PIPELINE BY GABS - App Version: <+pipeline.variables.APP_VERSION> - Rand Secret for CI: <+pipeline.stages.Build.spec.execution.steps.Generate_Random_Secret.output.outputVariables.tempsecret>"
 
                             # Prepare the environment
                             echo "Setting up environment..."
