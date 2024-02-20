@@ -27,18 +27,28 @@ pipeline:
                           portBindings:
                             "6379": "6379"
                           imagePullPolicy: IfNotPresent
-              - step:
-                  type: Run
-                  name: Get Python App Version
-                  identifier: Get_Python_App_Version
-                  spec:
-                    connectorRef: gabsdh
-                    image: python:3.12.2-slim
-                    shell: Bash
-                    command: export PYTHON_APP_VERSION=$(python get_version.py)
-                    privileged: true
-                    outputVariables:
-                      - name: PYTHON_APP_VERSION
+              - parallel:
+                  - step:
+                      type: Run
+                      name: Get Python App Version
+                      identifier: Get_Python_App_Version
+                      spec:
+                        connectorRef: gabsdh
+                        image: python:3.12.2-slim
+                        shell: Bash
+                        command: export PYTHON_APP_VERSION=$(python get_version.py)
+                        privileged: true
+                        outputVariables:
+                          - name: PYTHON_APP_VERSION
+                  - step:
+                      type: Run
+                      name: Generate Random Secret
+                      identifier: Generate_Random_Secret
+                      spec:
+                        shell: Sh
+                        command: TEMP_SECRET=$(echo $RANDOM$RANDOM$RANDOM | cut -c 1-10)
+                        outputVariables:
+                          - name: TEMP_SECRET
               - stepGroup:
                   name: Scan for Vulnerabilities
                   identifier: Scan_for_Vulnerabilities
