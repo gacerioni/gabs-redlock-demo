@@ -24,6 +24,25 @@ pipeline:
                     privileged: true
                     outputVariables:
                       - name: PYTHON_APP_VERSION
+              - stepGroup:
+                  name: Scan for Vulnerabilities
+                  identifier: Scan_for_Vulnerabilities
+                  steps:
+                    - step:
+                        type: Bandit
+                        name: Bandit
+                        identifier: Bandit
+                        spec:
+                          mode: orchestration
+                          config: default
+                          target:
+                            type: repository
+                            name: gabs-redlock-demo
+                            variant: aaa
+                          advanced:
+                            log:
+                              level: debug
+                            fail_on_severity: none
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and Push Container
