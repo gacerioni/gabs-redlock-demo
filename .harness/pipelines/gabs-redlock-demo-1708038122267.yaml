@@ -172,7 +172,6 @@ pipeline:
                       - <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
                   when:
                     stageStatus: Success
-                    condition: <+codebase.build.type> == "PR"
               - stepGroup:
                   name: Scan Image
                   identifier: Scan_Image
