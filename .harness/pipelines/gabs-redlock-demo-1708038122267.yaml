@@ -19,7 +19,7 @@ pipeline:
                     - step:
                         type: Background
                         name: Redis Stack
-                        identifier: Redis_Stack
+                        identifier: redis
                         spec:
                           connectorRef: gabsdh
                           image: redis:7.2.4
@@ -114,7 +114,7 @@ pipeline:
                   identifier: Final_Test_Do_the_trick
                   spec:
                     shell: Sh
-                    command: nc -v Redis_Stack 6379
+                    command: nc -v redis 6379
           platform:
             os: Linux
             arch: Amd64
