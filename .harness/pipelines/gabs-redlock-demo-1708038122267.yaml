@@ -125,21 +125,40 @@ pipeline:
                         identifier: Test_Happy_Path
                         spec:
                           shell: Sh
-                          command: |-
-                            touch /tmp/gabs.csv
+                          command: |
+                            #!/bin/bash
 
-                            sleep 1
+                            # Set up environment variables
+                            export REDIS_CONN_STR="redis://127.0.0.1:6379/0"
+                            export REDIS_CSV_FILE_NAME="/tmp/gabs.csv"
 
-                            export REDIS_CONN_STR=redis://127.0.0.1:6379/0
-                            export REDIS_CSV_FILE_NAME=/tmp/gabs.csv
+                            # Define the data to be added
+                            DATA="HARNESS BUILD PIPELINE BY GABS - App Version: <+pipeline.variables.APP_VERSION>"
 
+                            # Prepare the environment
+                            echo "Setting up environment..."
+                            touch "$REDIS_CSV_FILE_NAME"
                             python -m pip install -r requirements.txt
 
-                            python main.py --data "HARNESS BUILD PIPELINE BY GABS - "
+                            # Execute the main script with the provided data
+                            echo "Running main script..."
+                            python main.py --data "$DATA"
 
+                            # Give some time for the file to be updated
                             sleep 1
 
-                            cat /tmp/gabs.csv
+                            # Check if the file contains the specific line
+                            echo "Validating the CSV file content..."
+                            if grep -qF -- "$DATA" "$REDIS_CSV_FILE_NAME"; then
+                                echo "Validation successful: Data found in $REDIS_CSV_FILE_NAME"
+                            else
+                                echo "Validation failed: Data not found in $REDIS_CSV_FILE_NAME"
+                                exit 1
+                            fi
+
+                            # Optionally, display the content of the CSV file
+                            echo "Displaying the content of $REDIS_CSV_FILE_NAME:"
+                            cat "$REDIS_CSV_FILE_NAME"
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and Push Container
