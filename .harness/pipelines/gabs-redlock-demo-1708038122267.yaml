@@ -37,6 +37,7 @@ pipeline:
                             #!/bin/bash
                             sudo apt-get update
                             sudo apt-get install redis-tools -y
+                            which redis-cli
 
                             HOST=localhost
                             PORT=6379
