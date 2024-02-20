@@ -145,3 +145,9 @@ pipeline:
         connectorRef: account.Github
         repoName: gacerioni/gabs-redlock-demo
         build: <+input>
+  variables:
+    - name: APP_VERSION
+      type: String
+      description: ""
+      required: false
+      value: <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
