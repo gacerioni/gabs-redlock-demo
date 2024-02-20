@@ -38,7 +38,7 @@ pipeline:
                           target:
                             type: repository
                             name: gabs-redlock-demo
-                            variant: aaa
+                            variant: <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
                           advanced:
                             log:
                               level: debug
