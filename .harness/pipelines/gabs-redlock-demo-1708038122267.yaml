@@ -74,6 +74,9 @@ pipeline:
                                 log:
                                   level: debug
                                 fail_on_severity: none
+                  when:
+                    stageStatus: Success
+                    condition: <+codebase.build.type> == "PR"
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and Push Container
