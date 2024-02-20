@@ -27,6 +27,34 @@ pipeline:
                           portBindings:
                             "6379": "6379"
                           imagePullPolicy: IfNotPresent
+                    - step:
+                        type: Run
+                        name: Is Redis working
+                        identifier: Is_Redis_working
+                        spec:
+                          shell: Bash
+                          command: |-
+                            #!/bin/bash
+                            sudo apt-get update
+                            sudo apt-get install redis-tools -y
+
+                            HOST=localhost
+                            PORT=6379
+                            RETRIES=5
+                            DELAY=2
+
+                            for ((i=0; i<RETRIES; i++)); do
+                                if redis-cli -h $HOST -p $PORT ping | grep -q PONG; then
+                                    echo "Redis is ready!"
+                                    exit 0
+                                else
+                                    echo "Waiting for Redis to be ready..."
+                                    sleep $DELAY
+                                fi
+                            done
+
+                            echo "Redis is not ready after multiple attempts."
+                            exit 1
               - parallel:
                   - step:
                       type: Run
