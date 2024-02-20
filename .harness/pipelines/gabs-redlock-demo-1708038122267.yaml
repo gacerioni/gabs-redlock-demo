@@ -28,21 +28,37 @@ pipeline:
                   name: Scan for Vulnerabilities
                   identifier: Scan_for_Vulnerabilities
                   steps:
-                    - step:
-                        type: Bandit
-                        name: Bandit
-                        identifier: Bandit
-                        spec:
-                          mode: orchestration
-                          config: default
-                          target:
-                            type: repository
-                            name: gabs-redlock-demo
-                            variant: <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
-                          advanced:
-                            log:
-                              level: debug
-                            fail_on_severity: none
+                    - parallel:
+                        - step:
+                            type: Bandit
+                            name: Bandit
+                            identifier: Bandit
+                            spec:
+                              mode: orchestration
+                              config: default
+                              target:
+                                type: repository
+                                name: gabs-redlock-demo
+                                variant: <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
+                              advanced:
+                                log:
+                                  level: debug
+                                fail_on_severity: none
+                        - step:
+                            type: Gitleaks
+                            name: Gitleaks
+                            identifier: Gitleaks
+                            spec:
+                              mode: orchestration
+                              config: default
+                              target:
+                                type: repository
+                                name: gabs-redlock-demo
+                                variant: <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
+                              advanced:
+                                log:
+                                  level: debug
+                                fail_on_severity: none
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and Push Container
@@ -53,6 +69,30 @@ pipeline:
                     tags:
                       - latest
                       - <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
+              - stepGroup:
+                  name: Scan Image
+                  identifier: Scan_Image
+                  steps:
+                    - step:
+                        type: AquaTrivy
+                        name: AquaTrivy
+                        identifier: AquaTrivy
+                        spec:
+                          mode: orchestration
+                          config: default
+                          target:
+                            type: container
+                            name: gabs-redlock-demo
+                            variant: <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
+                          advanced:
+                            log:
+                              level: debug
+                            fail_on_severity: none
+                          privileged: true
+                          image:
+                            type: docker_v2
+                            name: gacerioni/gabs-redlock-demo
+                            tag: <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
           platform:
             os: Linux
             arch: Amd64
