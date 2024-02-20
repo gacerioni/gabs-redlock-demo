@@ -148,6 +148,10 @@ pipeline:
           runtime:
             type: Cloud
             spec: {}
+          caching:
+            enabled: true
+            paths: []
+        description: ""
   properties:
     ci:
       codebase:
