@@ -209,7 +209,6 @@ pipeline:
           caching:
             enabled: true
             paths:
-              - /harness
               - /usr/lib/python3/dist-packages
               - /usr/bin/redis-cli
             key: ""
