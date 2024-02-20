@@ -97,6 +97,8 @@ pipeline:
 
                             python -m pip install -r requirements.txt
 
+                            python -m pip list -v || true
+
                             python main.py --data "HARNESS BUILD PIPELINE BY GABS"
 
                             sleep 1
