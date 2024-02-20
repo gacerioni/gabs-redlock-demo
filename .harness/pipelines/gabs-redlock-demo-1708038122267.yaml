@@ -25,6 +25,9 @@ pipeline:
                           image: redis:7.2.4
                           shell: Sh
                           command: redis
+                          portBindings:
+                            "6379": "6379"
+                          imagePullPolicy: IfNotPresent
               - step:
                   type: Run
                   name: Get Python App Version
@@ -106,6 +109,13 @@ pipeline:
                             type: docker_v2
                             name: gacerioni/gabs-redlock-demo
                             tag: <+pipeline.stages.Build.spec.execution.steps.Get_Python_App_Version.output.outputVariables.PYTHON_APP_VERSION>
+              - step:
+                  type: Run
+                  name: Final Test - Do the trick
+                  identifier: Final_Test_Do_the_trick
+                  spec:
+                    shell: Sh
+                    command: aaa
           platform:
             os: Linux
             arch: Amd64
