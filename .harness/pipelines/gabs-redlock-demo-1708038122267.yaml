@@ -209,7 +209,6 @@ pipeline:
             enabled: true
             paths:
               - /harness
-              - /usr/local/lib/
               - /usr/lib/python3/dist-packages
             key: ""
         description: ""
