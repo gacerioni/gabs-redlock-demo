@@ -12,6 +12,19 @@ pipeline:
           cloneCodebase: true
           execution:
             steps:
+              - stepGroup:
+                  name: Redis Background Group
+                  identifier: Redis_Background_Group
+                  steps:
+                    - step:
+                        type: Background
+                        name: Redis Stack
+                        identifier: Redis_Stack
+                        spec:
+                          connectorRef: gabsdh
+                          image: redis:7.2.4
+                          shell: Sh
+                          command: redis
               - step:
                   type: Run
                   name: Get Python App Version
