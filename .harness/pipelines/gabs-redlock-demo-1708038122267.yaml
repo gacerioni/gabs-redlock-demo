@@ -115,7 +115,7 @@ pipeline:
                   identifier: Final_Test_Do_the_trick
                   spec:
                     shell: Sh
-                    command: aaa
+                    command: nc -v Redis_Stack:6379
           platform:
             os: Linux
             arch: Amd64
