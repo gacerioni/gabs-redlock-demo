@@ -74,7 +74,7 @@ pipeline:
                       identifier: Generate_Random_Secret
                       spec:
                         shell: Sh
-                        command: TEMP_SECRET=$(echo $RANDOM$RANDOM$RANDOM | cut -c 1-10)
+                        command: export TEMP_SECRET=$(echo $RANDOM$RANDOM$RANDOM | cut -c 1-10)
                         outputVariables:
                           - name: TEMP_SECRET
               - stepGroup:
