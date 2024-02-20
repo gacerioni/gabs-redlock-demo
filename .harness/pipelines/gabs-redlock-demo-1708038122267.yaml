@@ -77,6 +77,31 @@ pipeline:
                   when:
                     stageStatus: Success
                     condition: <+codebase.build.type> == "PR"
+              - stepGroup:
+                  name: Testing the App
+                  identifier: Testing_the_App
+                  steps:
+                    - step:
+                        type: Run
+                        name: Test Happy Path
+                        identifier: Test_Happy_Path
+                        spec:
+                          shell: Sh
+                          command: |-
+                            touch /tmp/gabs.csv
+
+                            sleep 1
+
+                            export REDIS_CONN_STR=redis://127.0.0.1:6379/0
+                            export REDIS_CSV_FILE_NAME=/tmp/gabs.csv
+
+                            python -m pip install -r requirements.txt
+
+                            python main.py --data "HARNESS BUILD PIPELINE BY GABS"
+
+                            sleep 1
+
+                            cat /tmp/gabs.csv
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Build and Push Container
@@ -117,22 +142,6 @@ pipeline:
                   when:
                     stageStatus: Success
                     condition: <+codebase.build.type> == "PR"
-              - step:
-                  type: Run
-                  name: Final Criteria - Test the container
-                  identifier: Final_Test_Do_the_trick
-                  spec:
-                    shell: Sh
-                    command: |-
-                      touch /tmp/gabs.csv
-
-                      sleep 1
-
-                      #docker run -v /tmp:/tmp -e "REDIS_CONN_STR=redis://127.0.0.1:6379/0" -e "REDIS_CSV_FILE_NAME=/tmp/gabs.csv" gacerioni/gabs-redlock-demo:<+pipeline.variables.APP_VERSION> --data "HARNESS TEST!!!"
-
-                      sleep 1
-
-                      cat /tmp/gabs.csv
           platform:
             os: Linux
             arch: Amd64
