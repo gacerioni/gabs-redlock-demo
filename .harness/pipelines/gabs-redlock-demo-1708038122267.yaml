@@ -24,7 +24,6 @@ pipeline:
                           connectorRef: gabsdh
                           image: redis:7.2.4
                           shell: Sh
-                          command: redis
                           portBindings:
                             "6379": "6379"
                           imagePullPolicy: IfNotPresent
