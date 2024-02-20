@@ -190,7 +190,11 @@ pipeline:
             spec: {}
           caching:
             enabled: true
-            paths: []
+            paths:
+              - /harness
+              - /usr/local/lib/
+              - /usr/lib/python3/dist-packages
+            key: ""
         description: ""
   properties:
     ci:
