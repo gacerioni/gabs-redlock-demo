@@ -117,7 +117,19 @@ pipeline:
                   identifier: Final_Test_Do_the_trick
                   spec:
                     shell: Sh
-                    command: nc -v localhost 6379
+                    command: |-
+                      touch /tmp/gabs.csv
+
+                      sleep 1
+
+                      docker run -v /tmp:/tmp \
+                        -e "REDIS_CONN_STR=redis://localhost:6379/0" \
+                        -e "REDIS_CSV_FILE_NAME=/tmp/gabs.csv" \
+                        gacerioni/gabs-redlock-demo:0.0.3-gabs --data "HARNESS TEST!!!"
+
+                      sleep 1
+
+                      cat /tmp/gabs.csv
           platform:
             os: Linux
             arch: Amd64
