@@ -1,8 +1,6 @@
 import csv
 import os
 import datetime
-from redis import Redis
-
 
 class CSVManager:
     def __init__(self, filename, redis_instance):

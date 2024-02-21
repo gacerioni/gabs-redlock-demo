@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b5980-2fd4-40bd-b372-a3e788cfe196" name="Changes" comment="Adding support for automatic tagging in Harness!">
-      <change afterPath="$PROJECT_DIR$/test_main.py" afterDir="false" />
+    <list default="true" id="b14b5980-2fd4-40bd-b372-a3e788cfe196" name="Changes" comment="0.0.6-harness">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VERSION" beforeDir="false" afterPath="$PROJECT_DIR$/VERSION" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/csv_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/csv_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lock_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/lock_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +24,31 @@
       </list>
     </option>
   </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="main" />
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Gabriel Cerioni &lt;gacerioni@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gacerioni&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="eb546ffd-86a2-4ae9-86da-e08495515f74" />
+        <option name="url" value="https://github.com/gacerioni/gabs-redlock-demo.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/pottery/redlock.py" root0="SKIP_INSPECTION" />
@@ -83,7 +106,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="--data &quot;came from pycharm!!!&quot; --sleep 10" />
+      <option name="PARAMETERS" value="--data &quot;came from pycharm!!!&quot; --sleep 20" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -114,7 +137,7 @@
       <workItem from="1708185367765" duration="597000" />
       <workItem from="1708186900374" duration="8588000" />
       <workItem from="1708374428981" duration="611000" />
-      <workItem from="1708375537562" duration="4217000" />
+      <workItem from="1708375537562" duration="10361000" />
     </task>
     <task id="LOCAL-00001" summary="0.0.1-gabs">
       <option name="closed" value="true" />
@@ -172,7 +195,47 @@
       <option name="project" value="LOCAL" />
       <updated>1708039270226</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="0.0.6-harness">
+      <option name="closed" value="true" />
+      <created>1708444173008</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708444173008</updated>
+    </task>
+    <task id="LOCAL-00009" summary="0.0.6-harness">
+      <option name="closed" value="true" />
+      <created>1708444302439</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708444302439</updated>
+    </task>
+    <task id="LOCAL-00010" summary="0.0.6-harness">
+      <option name="closed" value="true" />
+      <created>1708444427263</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708444427263</updated>
+    </task>
+    <task id="LOCAL-00011" summary="0.0.6-harness">
+      <option name="closed" value="true" />
+      <created>1708444467653</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1708444467653</updated>
+    </task>
+    <task id="LOCAL-00012" summary="0.0.6-harness">
+      <option name="closed" value="true" />
+      <created>1708453680203</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1708453680203</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,9 +249,10 @@
     <MESSAGE value="Refactor by Gabs - 0.0.3-gabs" />
     <MESSAGE value="Adding support for containers and k8s." />
     <MESSAGE value="Adding support for automatic tagging in Harness!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding support for automatic tagging in Harness!" />
+    <MESSAGE value="0.0.6-harness" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.6-harness" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/gabs_redlock_demo$main.coverage" NAME="main Coverage Results" MODIFIED="1708439944932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/gabs_redlock_demo$main.coverage" NAME="main Coverage Results" MODIFIED="1708524040908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
