@@ -44,7 +44,7 @@ def main():
     # Create a Redis connection instance
     redis_instance = Redis.from_url(REDIS_CONN_STR)
 
-    lock_manager = LockManager(REDIS_CONN_STR)
+    lock_manager = LockManager(REDIS_CONN_STR, auto_release_time=30)
     # Pass the Redis connection instance to CSVManager
     csv_manager = CSVManager(REDIS_CSV_FILE_NAME, redis_instance)
 
